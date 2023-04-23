@@ -9,8 +9,6 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const galleryEl = document.querySelector('.gallery');
 
-galleryEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
-
 const galleryItemsMarkup = galleryItems.map(({preview, original, description}) => {
 return `<div class="gallery__item">
 <a class="gallery__link" href="${original}">
@@ -24,7 +22,7 @@ return `<div class="gallery__item">
 </div>`
 }).join('');
 
-console.log(galleryItemsMarkup)
+galleryEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 
 
 const lightbox = new SimpleLightbox('.gallery a', {
